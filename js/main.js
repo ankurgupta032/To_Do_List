@@ -40,26 +40,11 @@ function showtask(){
         html += `<tr>
                     <th scope="row">${index+1}</th>
                     ${taskCompleteValue}
-                    <td><button type="button" onclick="edittask(${index})" class="text-primary"><i class="fa fa-edit"></i>Edit</button></td>
                     <td><button type="button" class="text-success" id=${index}><i class="fa fa-check-square-o"></i>Complete</button></td>
                     <td><button type="button" onclick="deleteitem(${index})" class="text-danger"><i class="fa fa-trash"></i>Delete</button></td>
                 </tr>`;
     });
     addedtasklist.innerHTML = html;
-}
-
-// edittask
-function edittask(index){
-    let saveindex = document.getElementById("saveindex");
-    let addtaskbtn = document.getElementById("addtaskbtn");
-    let savetaskbtn = document.getElementById("savetaskbtn");
-    saveindex.value = index;
-    let webtask = localStorage.getItem("localtask");
-    let taskObj = JSON.parse(webtask); 
-    
-    addtaskinput.value = taskObj[index]['task_name'];
-    addtaskbtn.style.display="none";
-    savetaskbtn.style.display="block";
 }
 
 // savetask
